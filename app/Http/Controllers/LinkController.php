@@ -6,10 +6,12 @@ use App\Models\Link;
 use App\Http\Requests\StoreLinkRequest;
 use App\Http\Requests\UpdateLinkRequest;
 use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LinkController extends Controller
 {
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -23,9 +25,16 @@ class LinkController extends Controller
      */
     public function store(StoreLinkRequest $request)
     {
-       Link::query()->create(
-            $request->validated()
-        );
+        //       Link::query()->create(
+        //        array_merge(
+        //              $request->validated(),
+        //          ['user_id' => Auth::id()]
+        //    )
+        //);
+        /**  @var User $user */
+
+        $user = Auth::user();
+        $user->links()->create($request->validated());
 
         return to_route('dashboard');
     }
