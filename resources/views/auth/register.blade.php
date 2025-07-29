@@ -1,4 +1,6 @@
 <div>
+
+    {{ auth()->id() }}
     <h1>Register</h1>
 
 
