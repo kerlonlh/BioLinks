@@ -46,8 +46,7 @@ class LinkController extends Controller
      */
     public function edit(Link $link)
     {
-        // This method is used to show the edit form for a specific link.
-        // The $link parameter is automatically resolved by Laravel's route model binding.
+        
         return view('links.edit', compact('link'));
     }
 
@@ -56,6 +55,7 @@ class LinkController extends Controller
      */
     public function update(UpdateLinkRequest $request, Link $link)
     {
+
         $link->fill($request->validated())
             ->save();
 
@@ -67,6 +67,8 @@ class LinkController extends Controller
      */
     public function destroy(Link $link)
     {
+
+
         $link->delete();
 
         return to_route('dashboard')->with('message', 'Link deleted successfully!');
@@ -74,6 +76,7 @@ class LinkController extends Controller
 
     public function up(Link $link)
     {
+    
         $link->moveUp();
 
         return back();
@@ -81,6 +84,7 @@ class LinkController extends Controller
 
     public function down(Link $link)
     {
+    
         $link->moveDown();
 
         return back();
