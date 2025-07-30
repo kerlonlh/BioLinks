@@ -67,6 +67,8 @@ class LinkController extends Controller
      */
     public function destroy(Link $link)
     {
-        //
+        $link->delete();
+
+        return to_route('dashboard')->with('message', 'Link deleted successfully!');
     }
 }
