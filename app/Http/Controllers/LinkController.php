@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateLinkRequest;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Termwind\Components\Li;
 
 class LinkController extends Controller
 {
@@ -45,7 +46,9 @@ class LinkController extends Controller
      */
     public function edit(Link $link)
     {
-        //
+        // This method is used to show the edit form for a specific link.
+        // The $link parameter is automatically resolved by Laravel's route model binding.
+        return view('links.edit', compact('link'));
     }
 
     /**
@@ -53,7 +56,10 @@ class LinkController extends Controller
      */
     public function update(UpdateLinkRequest $request, Link $link)
     {
-        //
+        $link->fill($request->validated())
+            ->save();
+
+        return to_route('dashboard')->with('message', 'Link updated successfully!');
     }
 
     /**
