@@ -8,8 +8,11 @@
     @endif
 
     <p>Bem vindo, {{ auth()->user()->name }}!</p>
-
+    <br>
+    <a href="{{ route('profile') }}">Atualizar perfil</a>
+    <br>
     <a href="{{ route('links.create') }}">Criar um novo</a>
+    <br>
     <ul>
         @foreach ($links as $link)
             <li style="display:flex">
