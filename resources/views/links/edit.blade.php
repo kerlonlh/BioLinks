@@ -1,38 +1,41 @@
-<div>
+<x-layout.app>
 
-    <h1>Editar um link :: {{ $link->id }}</h1>
+    <div>
+
+        <h1>Editar um link :: {{ $link->id }}</h1>
 
 
-    @if ($message = session()->get('message'))
-        <div>
-            {{ $message }}
-        </div>
-    @endif
-    <form action="{{ route('links.edit', $link) }}" method="POST">
-
-        @csrf
-
-        @method('PUT')
-
-        <div>
-            <input name="link" placeholder="Link" value="{{ old('link', $link->link) }}" />
-
-            @error('link')
-                <span>{{ $message }}</span>
-            @enderror
-        </div>
-        <br>
-        <br>
-        <div>
+        @if ($message = session()->get('message'))
             <div>
-                <input name="name" placeholder="Name" value="{{ old('name', $link->name) }}" />
+                {{ $message }}
+            </div>
+        @endif
+        <form action="{{ route('links.edit', $link) }}" method="POST">
 
-                @error('name')
+            @csrf
+
+            @method('PUT')
+
+            <div>
+                <input name="link" placeholder="Link" value="{{ old('link', $link->link) }}" />
+
+                @error('link')
                     <span>{{ $message }}</span>
                 @enderror
             </div>
+            <br>
+            <br>
+            <div>
+                <div>
+                    <input name="name" placeholder="Name" value="{{ old('name', $link->name) }}" />
 
-            <a href="{{ route('dashboard') }}">Cancelar</a>
-            <button>Salvar</button>
-    </form>
-</div>
+                    @error('name')
+                        <span>{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <a href="{{ route('dashboard') }}">Cancelar</a>
+                <button>Salvar</button>
+        </form>
+    </div>
+</x-layout.app>
