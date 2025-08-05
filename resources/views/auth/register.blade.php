@@ -1,15 +1,15 @@
 <x-layout.app>
     <x-container>
-        <x-card title="Registrar">
+        <x-card title="Register">
             <x-form :route="route('register')" post id="register-form">
-                <x-input name="name" placeholder="Nome" value="{{ old('name') }}" />
+                <x-input name="name" placeholder="Name" value="{{ old('name') }}" />
                 <x-input name="email" placeholder="E-mail" value="{{ old('email') }}" />
-                <x-input name="email_confirmation" placeholder="E-mail de confirmação"
-                    value="{{ old('email_confirmation') }}" />
-                <x-input name="password" type="password" placeholder="Senha" />
+                <x-input name="email_confirmation" placeholder="E-mail Confirmation" />
+                <x-input name="password" type="password" placeholder="Password" />
             </x-form>
             <x-slot:actions>
-                <x-button type="submit" form="register-form">Registrar</x-button>
+                <x-a :href="route('login')">Already have an account!</x-a>
+                <x-button type="submit" form="register-form">Register</x-button>
             </x-slot:actions>
         </x-card>
     </x-container>
