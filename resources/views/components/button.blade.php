@@ -1,9 +1,11 @@
  @props([
      'href' => null,
-     'block' => null,
+     'wide' => null,
+     'primary' => null,
      'outline' => null,
      'info' => null,
      'ghost' => null,
+     'soft' => null,
  ])
 
  @php
@@ -14,10 +16,12 @@
  <{{ $tag }} {{ $href ? "href=$href" : '' }}
      {{ $attributes->class([
          'btn',
-         'btn-block' => $block,
+         'btn-wide' => $wide,
+         'btn-primary' => $primary,
          'btn-outline' => $outline,
          'btn-info' => $info,
          'btn-ghost' => $ghost,
+         'btn-soft' => $soft,
      ]) }}>
      {{ $slot }}
      </{{ $tag }}>

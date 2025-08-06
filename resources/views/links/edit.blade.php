@@ -7,7 +7,7 @@
             </x-form>
             <x-slot:actions>
                 <x-a :href="route('dashboard')">Cancel</x-a>
-                <x-button type="submit" form="form">Update</x-button>
+                <x-button type="submit" form="form" primary>Update</x-button>
             </x-slot:actions>
         </x-card>
     </x-container>

@@ -9,10 +9,6 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegistrerController;
 use App\Http\Controllers\BioLinkController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::middleware(['guest'])->group(function () {
 
     Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -35,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
         Route::patch('/links/{link}/down', [LinkController::class, 'down'])->name('links.down');
     });
 
-    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/', DashboardController::class)->name('dashboard');
     Route::get('/logout', LogoutController::class)->name('logout');
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
