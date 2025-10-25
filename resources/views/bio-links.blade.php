@@ -1,7 +1,6 @@
 <x-layout.app>
     <x-container>
         <x-card>
-
             <div class="text-center space-y-2 w2/3">
                 <x-img src="/storage/{{ $user->photo }}" alt="Profile picture" />
                 <div class="font-bold text-2xl tracking-wider">{{ $user->name }}</div>
