@@ -1,12 +1,12 @@
 <x-layout.app>
     <x-container>
         <x-card>
-            <div class="absolute top-10 left-10 flex flex-col gap-4">
+            <div class="absolute md:top-10 md:left-10 flex flex-col gap-4">
                 <x-button outline :href="route('profile')"> Uppdate Profile </x-button>
                 <x-button outline :href="route('links.create')">Create a new link </x-button>
                 <x-button outline :href="route('logout')">Logout</x-button>
             </div>
-            <div class="text-center space-y-2 w2/3">
+            <div class="text-center space-y-2 md:w2/3 w-full">
                 <x-img src="/storage/{{ $user->photo }}" alt="Profile picture" />
                 <div class="font-bold text-2xl tracking-wider">{{ $user->name }}</div>
                 <div class="text-sm opacity-80 mb-6"> {{ $user->description }}</div>
