@@ -9,7 +9,6 @@
 </head>
 
 <body class="dark:bg-base-900 dark:text-slate-50 h-full">
-    <x-theme.apply />
 
     {{ $slot }}
 
